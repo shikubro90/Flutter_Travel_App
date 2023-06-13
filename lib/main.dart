@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_app/pages/detailes_page.dart';
+import 'package:flutter_travel_app/pages/home_page.dart';
 import 'package:flutter_travel_app/pages/navpages/main_page.dart';
 import 'package:flutter_travel_app/pages/welcome_page.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: MainPage()
       home: DetailPage(),
+      // home: HomePage(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_app/misc/colors.dart';
+import 'package:flutter_travel_app/widgets/app_button.dart';
 import 'package:flutter_travel_app/widgets/app_large_text.dart';
 import 'package:flutter_travel_app/widgets/app_text.dart';
 
@@ -11,7 +12,6 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-
   int gottenColor = 4;
 
   @override
@@ -21,17 +21,17 @@ class _DetailPageState extends State<DetailPage> {
         child: Stack(
           children: [
             Positioned(
-              left: 0,
+                left: 0,
                 right: 0,
                 child: Container(
-              height: 350,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                        'assets/beautiful-landscape.jpg',
-                      ),
-                      fit: BoxFit.cover)),
-            )),
+                  height: 350,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                            'assets/beautiful-landscape.jpg',
+                          ),
+                          fit: BoxFit.cover)),
+                )),
             Positioned(
                 left: 20,
                 top: 70,
@@ -55,42 +55,92 @@ class _DetailPageState extends State<DetailPage> {
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20)),
                       color: Colors.white),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        AppLargeText(text: 'Yosemite', color: Colors.black.withOpacity(0.8),),
-                        AppLargeText(text: '\$250', color: AppColors.mainColor,)
-                      ],
-                    ),
-                    SizedBox(height: 10,),
-                    Row(
-                      children: [
-                        Icon(Icons.location_on, color: AppColors.mainColor,size: 20,),
-                        SizedBox(width: 5,),
-                        AppText(text: "USA, California", size: 15, color: AppColors.textColor1,)
-                      ],
-                    ),
-                    SizedBox(height: 10,),
-                    Row(
-                      children: [
-                        Wrap(
-                          children:
-                            List.generate(5, (index){
-                              return Icon(Icons.star, color: index<gottenColor?AppColors.startColor : AppColors.textColor2,);
-                            })
-                        ),
-                        AppText(text: "(4.0)", size: 15,)
-                      ],
-                    ),
-                    SizedBox(height: 25,),
-                    AppLargeText(text: "People", size: 30, color: Colors.black.withOpacity(0.8),)
-                  ],
-                ),
-                )
-            )
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          AppLargeText(
+                            text: 'Yosemite',
+                            color: Colors.black.withOpacity(0.8),
+                          ),
+                          AppLargeText(
+                            text: '\$250',
+                            color: AppColors.mainColor,
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on,
+                            color: AppColors.mainColor,
+                            size: 20,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          AppText(
+                            text: "USA, California",
+                            size: 15,
+                            color: AppColors.textColor1,
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Wrap(
+                              children: List.generate(5, (index) {
+                            return Icon(
+                              Icons.star,
+                              color: index < gottenColor
+                                  ? AppColors.startColor
+                                  : AppColors.textColor2,
+                            );
+                          })),
+                          AppText(
+                            text: "(4.0)",
+                            size: 15,
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      AppLargeText(
+                        text: "People",
+                        size: 30,
+                        color: Colors.black.withOpacity(0.8),
+                      ),
+                      AppText(
+                        text: 'Number of people in your group',
+                        size: 20,
+                        color: AppColors.mainTextColor,
+                      ),
+                      SizedBox(height: 10,),
+                      Wrap(
+                        children:
+                          List.generate(5, (index) {
+                            return InkWell(
+                              onTap: (){
+                                setState(() {
+
+                                });
+                              },
+                                child: AppButton(text: (index+1).toString()),
+                            );
+                          })
+                      )
+                    ],
+                  ),
+                )),
           ],
         ),
       ),

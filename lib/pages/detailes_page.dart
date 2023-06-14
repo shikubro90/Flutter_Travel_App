@@ -3,6 +3,7 @@ import 'package:flutter_travel_app/misc/colors.dart';
 import 'package:flutter_travel_app/widgets/app_button.dart';
 import 'package:flutter_travel_app/widgets/app_large_text.dart';
 import 'package:flutter_travel_app/widgets/app_text.dart';
+import 'package:flutter_travel_app/widgets/responsive_button.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -13,7 +14,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int gottenColor = 4;
-
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,11 +113,11 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                       SizedBox(
-                        height: 25,
+                        height: 10,
                       ),
                       AppLargeText(
                         text: "People",
-                        size: 30,
+                        size: 20,
                         color: Colors.black.withOpacity(0.8),
                       ),
                       AppText(
@@ -124,23 +125,64 @@ class _DetailPageState extends State<DetailPage> {
                         size: 20,
                         color: AppColors.mainTextColor,
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Wrap(
-                        children:
-                          List.generate(5, (index) {
-                            return InkWell(
-                              onTap: (){
-                                setState(() {
-
-                                });
-                              },
-                                child: AppButton(text: (index+1).toString()),
-                            );
-                          })
+                          children: List.generate(5, (index) {
+                        return InkWell(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                              });
+                            },
+                            child: AppButton(
+                              text: (index + 1).toString(),
+                              color: selectedIndex == index
+                                  ? Colors.white
+                                  : AppColors.mainColor,
+                              backGroundColor: selectedIndex == index
+                                  ? AppColors.bigTextColor
+                                  : AppColors.buttonBackground,
+                              borderColor: AppColors.buttonBackground,
+                              size: 50,
+                              isTrue: false,
+                              icon: Icons.favorite_outline,
+                            ));
+                      })),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      AppLargeText(
+                        text: "Description",
+                        color: Colors.black.withOpacity(0.8),
+                        size: 20,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      AppText(
+                        text:
+                            "Yosemite National Park is located in centaral Sierra Nevada in the US state of California. It is located near the wild proteched area.",
+                        size: 15,
+                        color: AppColors.textColor2,
                       )
                     ],
                   ),
                 )),
+            Positioned(
+              bottom: 20,
+              left: 20,
+              right: 20,
+              child: Row(
+                children: [
+                  AppButton(color: AppColors.textColor2, backGroundColor: Colors.white, borderColor: AppColors.textColor2, size: 60,
+                  isTrue: true, icon: Icons.favorite_outline,),
+                  SizedBox(width: 10,),
+                  ResponsiveButton(text: "Book Trip Now",isResponsive: true,)
+                ],
+              ),
+            )
           ],
         ),
       ),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_travel_app/cubit/app_cubits.dart';
 import 'package:flutter_travel_app/pages/detailes_page.dart';
 import 'package:flutter_travel_app/pages/home_page.dart';
 import 'package:flutter_travel_app/pages/navpages/main_page.dart';
 import 'package:flutter_travel_app/pages/welcome_page.dart';
+import 'package:flutter_travel_app/widgets/app_cubit_logic.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +25,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: MainPage()
-      home: DetailPage(),
+      home: BlocProvider<AppCubit>(
+        create: (context)=>AppCubit(),
+        child: AppCubitLogic(),
+      )
       // home: HomePage(),
     );
   }

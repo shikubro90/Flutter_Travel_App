@@ -5,7 +5,7 @@ import 'package:flutter_travel_app/pages/detailes_page.dart';
 import 'package:flutter_travel_app/pages/home_page.dart';
 import 'package:flutter_travel_app/pages/navpages/main_page.dart';
 import 'package:flutter_travel_app/pages/welcome_page.dart';
-import 'package:flutter_travel_app/widgets/app_cubit_logic.dart';
+import 'package:flutter_travel_app/cubit/app_cubit_logic.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,10 +24,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+        // home: DetailPage()
       // home: MainPage()
       home: BlocProvider<AppCubit>(
-        create: (context)=>AppCubit(),
-        child: AppCubitLogic(),
+        create:(context)=>AppCubit(),
+        child: const AppCubitLogic(),
       )
       // home: HomePage(),
     );

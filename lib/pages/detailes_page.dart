@@ -176,10 +176,18 @@ class _DetailPageState extends State<DetailPage> {
               right: 20,
               child: Row(
                 children: [
-                  AppButton(color: AppColors.textColor2, backGroundColor: Colors.white, borderColor: AppColors.textColor2, size: 60,
-                  isTrue: true, icon: Icons.favorite_outline,),
-                  SizedBox(width: 10,),
-                  ResponsiveButton(text: "Book Trip Now",isResponsive: true,)
+                  AppButton(
+                    color: AppColors.textColor2,
+                    backGroundColor: Colors.white,
+                    borderColor: AppColors.textColor2,
+                    size: 60,
+                    isTrue: true,
+                    icon: Icons.favorite_outline,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ResponsiveButton(text: "Book Trip Now", isResponsive: true)
                 ],
               ),
             )

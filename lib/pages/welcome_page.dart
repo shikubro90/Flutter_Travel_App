@@ -33,7 +33,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         // ignore: prefer_interpolation_to_compose_strings
                         "assets/" + images[index]))),
                 child: Container(
-                  margin: EdgeInsets.only(top: 100, right: 20, left: 20),
+                  margin: const EdgeInsets.only(top: 100, right: 20, left: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -62,17 +62,24 @@ class _WelcomePageState extends State<WelcomePage> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
-                          ResponsiveButton(isResponsive: true, width: 120)
+                          Container(
+                              width: 200,
+                              child: Row(
+                                children: [
+                                  ResponsiveButton(width: 120,),
+                                ],
+                              )
+                          ),
                         ],
                       ),
                       Column(
                         children:
                           List.generate(3, (indexDots){
                             return Container(
-                              margin: EdgeInsets.only(bottom: 8),
+                              margin: const EdgeInsets.only(bottom: 8),
                               width: 8,
                               height: index==indexDots ? 25 : 8,
                               decoration: BoxDecoration(

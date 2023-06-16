@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter_travel_app/model/data_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,14 +10,15 @@ class DataServices {
     try {
       if (res.statusCode == 200) {
         List<dynamic> list = json.decode(res.body);
+        print("shikupring${list}");
         return list.map((e) => DataModel.fromJson(e)).toList();
+        // return List<DataModel>.generate(list.length, (index) => DataModel.fromJson(list[index]));
+
       } else {
         return <DataModel>[];
       }
     } catch (e) {
-      if (kDebugMode) {
-        print(e);
-      }
+      print(e);
       return <DataModel>[];
     }
   }

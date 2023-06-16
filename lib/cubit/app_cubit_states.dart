@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_travel_app/model/data_model.dart';
 
 abstract class CubitStates extends Equatable{}
@@ -25,8 +26,10 @@ class LoadingStates extends CubitStates{
 
 class LoadStates extends CubitStates{
 
-  LoadStates(this.places);
   final List<DataModel> places;
+
+  LoadStates({Key? key, required this.places});
+
 
   @override
   // TODO: implement props

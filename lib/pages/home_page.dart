@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           builder: (context, state){
             if(state is LoadStates){
               var info = state.places;
-              print("SHiku${info}");
+              print("info load${info}");
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       controller: _tabController,
                       children: [
                         ListView.builder(
-                          itemCount: info.length,
+                          itemCount: 3,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
@@ -107,8 +107,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               height: 300,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
-                                  image: DecorationImage(
-                                      image: NetworkImage("http://mark.bslmeiyu.com/uploads/"+info[index].img))),
+                                  image: const DecorationImage(
+                                      // image: NetworkImage("http://mark.bslmeiyu.com/uploads/${info[index].img}")
+                                      image: AssetImage('assets/mountain-img.jpg')
+                                  )),
                             );
                           },
                         ),
@@ -178,7 +180,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               );
             }else{
               return Container(
-                child: Text("Fail"),
+                child: Text("Text"),
               );
             }
           },

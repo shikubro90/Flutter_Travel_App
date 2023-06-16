@@ -6,6 +6,7 @@ import 'package:flutter_travel_app/pages/home_page.dart';
 import 'package:flutter_travel_app/pages/navpages/main_page.dart';
 import 'package:flutter_travel_app/pages/welcome_page.dart';
 import 'package:flutter_travel_app/cubit/app_cubit_logic.dart';
+import 'package:flutter_travel_app/services/data_services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,9 @@ class MyApp extends StatelessWidget {
         // home: DetailPage()
       // home: MainPage()
       home: BlocProvider<AppCubit>(
-        create:(context)=>AppCubit(),
+        create:(context)=>AppCubit(
+          data: DataServices(),
+        ),
         child: const AppCubitLogic(),
       )
       // home: HomePage(),

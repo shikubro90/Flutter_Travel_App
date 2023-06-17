@@ -4,7 +4,6 @@ import 'package:flutter_travel_app/cubit/app_cubits.dart';
 import 'package:flutter_travel_app/misc/colors.dart';
 import 'package:flutter_travel_app/widgets/app_large_text.dart';
 import 'package:flutter_travel_app/widgets/app_text.dart';
-
 import '../cubit/app_cubit_states.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,7 +31,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           builder: (context, state){
             if(state is LoadStates){
               var info = state.places;
-              print("info load${info}");
+              // print("info load${info}");
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -107,9 +106,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               height: 300,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
-                                  image: const DecorationImage(
-                                      // image: NetworkImage("http://mark.bslmeiyu.com/uploads/${info[index].img}")
-                                      image: AssetImage('assets/mountain-img.jpg')
+                                  image: DecorationImage(
+                                      image: NetworkImage("http://mark.bslmeiyu.com/uploads/"+info[index].img),
+                                      fit: BoxFit.cover
+                                      // image: AssetImage('assets/mountain-img.jpg')
                                   )),
                             );
                           },

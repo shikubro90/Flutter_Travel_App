@@ -15,20 +15,20 @@ class AppCubitLogic extends StatefulWidget {
 class _AppCubitLogicState extends State<AppCubitLogic> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocBuilder<AppCubit, CubitStates>(
-        builder: (context, state){
-          if(state is WelcomeStates){
-            return WelcomePage();
-          }if(state is LoadStates){
-            return HomePage();
-          }if(state is LoadingStates){
-            return const Center(child: CircularProgressIndicator());
-          } else{
-            return Container();
-          }
-        },
-      )
-    );
+    return Scaffold(body: BlocBuilder<AppCubit, CubitStates>(
+      builder: (context, state) {
+        if (state is WelcomeStates) {
+          return WelcomePage();
+        }
+        if (state is LoadStates) {
+          return HomePage();
+        }
+        if (state is LoadingStates) {
+          return const Center(child: CircularProgressIndicator());
+        } else {
+          return Container();
+        }
+      },
+    ));
   }
 }

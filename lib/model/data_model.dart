@@ -3,7 +3,7 @@ class DataModel {
   String img;
   int price;
   int people;
-  int start;
+  int stars;
   String description;
   String location;
   DataModel(
@@ -13,7 +13,7 @@ class DataModel {
       required this.img,
       required this.price,
       required this.people,
-      required this.start,
+      required this.stars,
       required this.description,
       required this.location});
 
@@ -23,7 +23,7 @@ class DataModel {
         img: json['img'],
         price: json['price'],
         people: json['people'],
-        start: json['start'],
+        stars: json['stars'],
         description: json['description'],
         location: json['location']);
   }

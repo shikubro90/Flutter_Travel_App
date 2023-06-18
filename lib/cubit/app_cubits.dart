@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_travel_app/cubit/app_cubit_states.dart';
+import 'package:flutter_travel_app/model/data_model.dart';
 import 'package:flutter_travel_app/services/data_services.dart';
 
 class AppCubit extends Cubit<CubitStates> {
@@ -45,20 +46,18 @@ class AppCubit extends Cubit<CubitStates> {
     try {
       emit(LoadingStates());
       places = await data.getInfo();
-      // print("places type: ${places.runtimeType}");
-      // print("places value: $places");
-      // if (places != null) {
-      //   print("load place ${places}");
-      //   emit(LoadStates(places));
-      // } else {
-      //   print("places is null or not initialized.");
-      // }
-      // print(places.name.toString());
       emit(LoadStates(places));
     } catch (e) {
       print("An error occurred: $e");
     }
   }
 
+  goToDetailPage(DataModel data){
+    emit(DetailStates(data));
+  }
+
+  goBack(){
+  emit(LoadStates(places));  
+  }
 
 }

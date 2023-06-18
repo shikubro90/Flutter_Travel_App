@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_travel_app/pages/detailes_page.dart';
 import 'package:flutter_travel_app/pages/navpages/bar_item_page.dart';
 import 'package:flutter_travel_app/pages/home_page.dart';
 import 'package:flutter_travel_app/pages/navpages/my_page.dart';
@@ -14,7 +15,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
 
   List pages = [
-    HomePage(),
+    DetailPage(),
     SearchPage(),
     BarItemPage(),
     MyPage()

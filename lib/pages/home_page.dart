@@ -100,17 +100,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           itemCount: 3,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              margin: EdgeInsets.only(right: 15, top: 15),
-                              width: 200,
-                              height: 300,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  image: DecorationImage(
-                                      image: NetworkImage("http://mark.bslmeiyu.com/uploads/"+info[index].img),
-                                      fit: BoxFit.cover
-                                      // image: AssetImage('assets/mountain-img.jpg')
-                                  )),
+                            return GestureDetector(
+                              onTap: (){
+                                BlocProvider.of<AppCubit>(context).goToDetailPage(info[index]);
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(right: 15, top: 15),
+                                width: 200,
+                                height: 300,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    image: DecorationImage(
+                                        image: NetworkImage("http://mark.bslmeiyu.com/uploads/"+info[index].img),
+                                        fit: BoxFit.cover
+                                        // image: AssetImage('assets/mountain-img.jpg')
+                                    )),
+                              ),
                             );
                           },
                         ),

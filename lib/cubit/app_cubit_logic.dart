@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_travel_app/cubit/app_cubit_states.dart';
 import 'package:flutter_travel_app/cubit/app_cubits.dart';
 import 'package:flutter_travel_app/pages/home_page.dart';
+import 'package:flutter_travel_app/pages/navpages/main_page.dart';
 import '../pages/welcome_page.dart';
 
 class AppCubitLogic extends StatefulWidget {
@@ -22,6 +23,9 @@ class _AppCubitLogicState extends State<AppCubitLogic> {
         }
         if (state is LoadStates) {
           return HomePage();
+        }
+        if (state is DetailStates) {
+          return MainPage();
         }
         if (state is LoadingStates) {
           return const Center(child: CircularProgressIndicator());

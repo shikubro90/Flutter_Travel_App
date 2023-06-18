@@ -72,11 +72,11 @@ class _DetailPageState extends State<DetailPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               AppLargeText(
-                                text: 'Yosemite',
+                                text: detailStates.places.name,
                                 color: Colors.black.withOpacity(0.8),
                               ),
                               AppLargeText(
-                                text: '\$250',
+                                text: '\$'+detailStates.places.price.toString(),
                                 color: AppColors.mainColor,
                               )
                             ],
@@ -95,7 +95,7 @@ class _DetailPageState extends State<DetailPage> {
                                 width: 5,
                               ),
                               AppText(
-                                text: "USA, California",
+                                text: detailStates.places.location,
                                 size: 15,
                                 color: AppColors.textColor1,
                               )
@@ -116,7 +116,7 @@ class _DetailPageState extends State<DetailPage> {
                                     );
                                   })),
                               AppText(
-                                text: "(4.0)",
+                                text: detailStates.places.stars.toString(),
                                 size: 15,
                               )
                             ],
@@ -125,7 +125,7 @@ class _DetailPageState extends State<DetailPage> {
                             height: 10,
                           ),
                           AppLargeText(
-                            text: "People",
+                            text:  'People',
                             size: 20,
                             color: Colors.black.withOpacity(0.8),
                           ),
@@ -172,7 +172,7 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                           AppText(
                             text:
-                            "Yosemite National Park is located in centaral Sierra Nevada in the US state of California. It is located near the wild proteched area.",
+                            detailStates.places.description,
                             size: 15,
                             color: AppColors.textColor2,
                           )
